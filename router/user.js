@@ -1,24 +1,16 @@
-const express = require("express");
-const {
-    Login,
-    Register,
-    UpdateUser,
-} = require("../controllers/user_controllers");
-const isAuth = require("../middleware/auth");
-const {
-    validation,
-    loginValidate,
-    registerValidate,
-} = require("../middleware/validateUser");
-const { updateMany } = require("../models/userSchema");
+const express = require('express');
+
+const { Login, Register, UpdateUser } = require('../controllers/user_controllers');
+const isAuth = require('../middleware/auth');
+const { validation, loginValidate, registerValidate } = require('../middleware/validateUser');
 
 const router = express.Router();
 
-router.get("/", (req, res) => {
-    res.send("testing router");
+router.get('/', (req, res) => {
+  res.send('testing router');
 });
 
-//Annotation
+// Annotation
 
 /*
 @method: POST
@@ -26,7 +18,7 @@ router.get("/", (req, res) => {
 @ parameter: req.body  
 public
 */
-router.post("/register", registerValidate(), validation, Register);
+router.post('/register', registerValidate(), validation, Register);
 
 /*
 @method: POST 
@@ -34,16 +26,16 @@ router.post("/register", registerValidate(), validation, Register);
 @parameter:req.body{email pass}
 public
 */
-router.post("/login", loginValidate(), validation, Login);
+router.post('/login', loginValidate(), validation, Login);
 /*
 @method: GET 
 @path:http:localhost:5000/api/user/current
 @parameter:req.body{email pass}
 prive
 */
-router.get("/current", isAuth, (req, res) => {
-    res.status(200).send({ msg: "authorized", user: req.user });
+router.get('/current', isAuth, (req, res) => {
+  res.status(200).send({ msg: 'authorized', user: req.user });
 });
-router.put("/:id", isAuth, UpdateUser);
+router.put('/:id', isAuth, UpdateUser);
 
 module.exports = router;
