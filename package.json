@@ -4,12 +4,13 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint  --ignore-path .gitignore .",
     "lint:fix": "eslint --ignore-path .gitignore  . --fix",
     "prepare": "husky install",
-    "scan": "auditjs ossi"
+    "prod": "pm2-runtime start ecosystem.config.json --env production",
+    "scan": "auditjs ossi",
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
@@ -24,7 +25,8 @@
     "express-validator": "^6.14.2",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.0.13",
-    "nodemon": "^1.4.1"
+    "nodemon": "^1.4.1",
+    "pm2": "^5.2.0"
   },
   "devDependencies": {
     "auditjs": "^4.0.37",

@@ -1,0 +1,15 @@
+{
+  "apps": [
+    {
+      "name": "BWDigital",
+      "instances": 1,
+      "autorestart": true,
+      "watch": false,
+      "time": true,
+      "script": "server.js",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    }
+  ]
+}
