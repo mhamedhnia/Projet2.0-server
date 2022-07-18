@@ -28,12 +28,6 @@
     "nodemon": "^2.0.19",
     "pm2": "^5.2.0"
   },
-  "lint-staged": {
-    "*.js": [
-      "pretty-quick --staged",
-      "eslint"
-    ]
-  },
   "devDependencies": {
     "auditjs": "^4.0.37",
     "eslint": "^8.20.0",
@@ -43,8 +37,6 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-security": "^1.5.0",
     "husky": "^8.0.1",
-    "lint-staged": "^13.0.3",
-    "prettier": "^2.7.1",
-    "pretty-quick": "^3.1.3"
+    "prettier": "^2.7.1"
   }
 }
